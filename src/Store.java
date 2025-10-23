@@ -27,10 +27,8 @@ public class Store {
                 System.out.println(p);
             }
             System.out.println("0. Zakończ zakupy");
-
             System.out.print("Wybierz numer produktu: ");
             choice = scanner.nextInt();
-
             if (choice == 0) break;
 
             Product selected = findProductById(choice);
@@ -38,12 +36,16 @@ public class Store {
             else System.out.println("Nie ma produktu o takim numerze.");
         }
 
-        System.out.println("\n=== PODSUMOWANIE ===");
+        System.out.println("\n=== PODSUMOWANIE PRZED ZNIŻKĄ ===");
         cart.showCart();
         double totalBeforeDiscount = cart.getTotal();
         System.out.println("cena przed obniżką: " + String.format("%.2f", totalBeforeDiscount) + " zł");
 
-        double totalAfterDiscount = totalBeforeDiscount * (1 - DISCOUNT / 100);
+        cart.applyDiscountToAll(DISCOUNT);
+
+        System.out.println("\n=== PODSUMOWANIE PO ZNIŻCE ===");
+        cart.showCart();
+        double totalAfterDiscount = cart.getTotal();
         System.out.println("cena po obniżce 10%: " + String.format("%.2f", totalAfterDiscount) + " zł");
     }
 

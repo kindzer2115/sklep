@@ -13,15 +13,10 @@ public class Cart {
             System.out.println("Koszyk jest pusty.");
             return;
         }
-
         System.out.println("\n=== Twój koszyk ===");
         for (Product p : products) {
             System.out.println(p);
         }
-    }
-
-    public ArrayList<Product> getProducts() {
-        return products;
     }
 
     public double getTotal() {
@@ -30,5 +25,11 @@ public class Cart {
             total += p.getPrice();
         }
         return total;
+    }
+
+    public void applyDiscountToAll(double percentage) {
+        for (Product p : products) {
+            p.applyDiscount(percentage);
+        }
     }
 }

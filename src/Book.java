@@ -1,13 +1,9 @@
-public class Book extends Product implements Discountable {
+public class Book extends Product {
     private String author;
 
     public Book(String name, double price, int id, String author) {
         super(name, price, id);
         this.author = author;
-    }
-
-    @Override
-    public void applyDiscount(double percentage) {
     }
 
     @Override

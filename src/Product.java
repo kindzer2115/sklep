@@ -1,4 +1,4 @@
-public class Product {
+public class Product implements Discountable {
     private String name;
     private double price;
     private int id;
@@ -11,7 +11,13 @@ public class Product {
 
     public String getName() { return name; }
     public double getPrice() { return price; }
+    public void setPrice(double price) { this.price = price; }
     public int getId() { return id; }
+
+    @Override
+    public void applyDiscount(double percentage) {
+        setPrice(getPrice() * (1 - percentage / 100));
+    }
 
     @Override
     public String toString() {
