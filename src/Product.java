@@ -9,24 +9,12 @@ public class Product {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public double getPrice() {
-        return price;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setPrice(double price) {
-        this.price = price;
-    }
+    public String getName() { return name; }
+    public double getPrice() { return price; }
+    public int getId() { return id; }
 
     @Override
     public String toString() {
-        return "ID: " + id + ", " + name + ", Cena: " + price + " zł";
+        return id + ". " + name + " - " + String.format("%.2f", price) + " zł";
     }
 }

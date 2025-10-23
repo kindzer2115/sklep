@@ -6,17 +6,12 @@ public class Electronics extends Product implements Discountable {
         this.brand = brand;
     }
 
-    public String getBrand() {
-        return brand;
-    }
-
     @Override
     public void applyDiscount(double percentage) {
-        setPrice(getPrice() * (1 - percentage / 100));
     }
 
     @Override
     public String toString() {
-        return super.toString() + ", Marka: " + brand;
+        return super.toString() + " (Marka: " + brand + ")";
     }
 }

@@ -6,17 +6,12 @@ public class Book extends Product implements Discountable {
         this.author = author;
     }
 
-    public String getAuthor() {
-        return author;
-    }
-
     @Override
     public void applyDiscount(double percentage) {
-        setPrice(getPrice() * (1 - percentage / 100));
     }
 
     @Override
     public String toString() {
-        return super.toString() + ", Autor: " + author;
+        return super.toString() + " (Autor: " + author + ")";
     }
 }
